@@ -1,0 +1,21 @@
+<p>
+  invites works!
+</p>
+
+<div>
+  <h2>My Invites</h2>
+  <ul class="invites">
+    <li *ngFor="let invite of invites">
+      <a routerLink="/detail/{{invite.id}}">
+        <span class="badge">{{invite.id}}</span> {{invite.name}}
+      </a>
+    </li>
+
+  </ul>
+  <nav>
+    <a routerLink="/">Retour Accueil</a>
+  </nav>
+</div>
+
+
+

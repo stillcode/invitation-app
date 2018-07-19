@@ -1,0 +1,14 @@
+<p>
+  invite-detail works!
+</p>
+
+<div *ngIf="invite">
+  <h2>{{invite.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{invite.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="invite.name" placeholder="name">
+    </label>
+  </div>
+</div>
+<button (click)="goBack()">Retour</button>
