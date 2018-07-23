@@ -3,12 +3,27 @@
 </p>
 
 <div>
-  <h2>My Invites</h2>
+    <h2>My Invites</h2>
+    <label>Nouvel inscrit :
+      <input #inviteName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(inviteName.value); inviteName.value=''">
+      Ajouter
+    </button>
+  </div>
+
+<div>
+
   <ul class="invites">
     <li *ngFor="let invite of invites">
       <a routerLink="/detail/{{invite.id}}">
-        <span class="badge">{{invite.id}}</span> {{invite.name}}
+        <span class="badge">{{invite.id}}</span> {{invite.name}} 
       </a>
+      <button class="delete" title="Supprimer cet invite" (click)="delete(invite)">
+        X
+      </button>
+
     </li>
 
   </ul>

@@ -47,4 +47,9 @@ export class InviteDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(): void {
+    this.inviteService.updateInvite(this.invite)
+      .subscribe(() => this.goBack())
+  }
+
 }

@@ -30,6 +30,24 @@ export class InvitesComponent implements OnInit {
       .subscribe(invites => this.invites = invites);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    //When the given name is non-blank, the handler creates a Hero-like object from the name (it's only missing the id) and passes it to the services addHero() method.
+    //When addHero saves successfully, the subscribe callback receives the new hero and pushes it into to the heroes list for display.
+    this.inviteService.addInvite({name} as Invite)
+      .subscribe(invite => {
+        this.invites.push(invite);
+      })
+  }
+
+  delete(invite: Invite): void {
+    this.invites = this.invites.filter(h => h !== invite);
+    this.inviteService.deleteInvite(invite)
+      .subscribe();
+
+  }
+
 
 
 }
